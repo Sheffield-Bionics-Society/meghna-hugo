@@ -22,7 +22,7 @@
 				{{ with .link }}<a href="{{ . }}">{{ end }}
 				<div class="block">
 					<div class="icon-box">
-						{{with .icon}}<i class="{{ . }}"></i>{{ end }}
+						{{with .icon}}<img src="{{ . }}" class="icon">{{ end }}
 					</div>
 					{{"<!-- Express About Yourself -->" | safeHTML}}
 					<div class="content text-center">
