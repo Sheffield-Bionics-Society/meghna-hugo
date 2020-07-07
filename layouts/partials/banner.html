@@ -8,10 +8,8 @@
 	<img style="display: none;" onerror="this.onerror=null;this.parentElement.style.backgroundImage= 'url({{ .bg_image | absURL }})'" src="{{ .bg_image_webp | absURL }}" />
 
 	<div class="block">
-		{{ if .icon }}
-		<div class="video-button">
-			<i class="{{ .icon }}"></i>
-		</div>
+		{{ if .logo }}
+			<img src="{{ .logo }}" class="banner-logo"/>
 		{{ end }}
 		<h1>{{ .title | markdownify }}</h1>
 		<p>{{ .content | markdownify }}</p>
