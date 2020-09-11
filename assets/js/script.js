@@ -56,6 +56,22 @@ jQuery(function ($) {
 	}
 
 	/* ========================================================================= */
+	/*	Background Carousel
+	/* =========================================================================  */
+
+	let initSlide = Math.floor(Math.random() * $(".banner-bg").length)
+
+	$("#bg-slick").slick({
+		infinite: true,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 3000,
+		fade: true,
+		pauseOnHover: false,
+		initialSlide: initSlide
+	});
+
+	/* ========================================================================= */
 	/*	Testimonial Carousel
 	/* =========================================================================  */
 

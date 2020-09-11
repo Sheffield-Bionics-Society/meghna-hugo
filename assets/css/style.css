@@ -504,6 +504,24 @@ a:hover {
   letter-spacing: 1px;
 }
 
+.hero-area #bg-slick {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-area .banner-logo {
+  width: 50%;
+  max-width: 30em;
+  padding-bottom: 5%;
+}
+
+.hero-area .banner-bg {
+  width: 100vh;
+  height: 100vh;
+  object-fit: cover;
+}
+
 .hero-area-video {
   height: 100vh;
   position: inherit !important;
