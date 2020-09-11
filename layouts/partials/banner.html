@@ -6,7 +6,7 @@
 <section class="hero-area">
 	<div id="bg-slick">
 		{{ $bg_dir := .bg_dir}}
-		{{ range (readDir (path.Join "static/" $bg_dir))}}
+		{{ range (path.Join "static/" $bg_dir | readDir) }}
 			{{ $srcPath := path.Join $bg_dir .Name }}
 			<img src="{{ $srcPath | absURL }}" class="banner-bg"/>
 		{{ end }}
