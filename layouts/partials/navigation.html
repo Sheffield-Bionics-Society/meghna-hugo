@@ -16,16 +16,26 @@
 			<div class="collapse navbar-collapse" id="navigation">
 				<ul class="navbar-nav ml-auto">
 					<!-- <li class="nav-item"><a class="nav-link" href="#body">{{ .Site.Params.home }}</a></li> -->
+					{{ $vars := newScratch }}
+
 					{{ if .IsHome }}
 					{{ range .Site.Menus.main }}
-					<li class="nav-item"><a class="nav-link" href="#{{ .URL }}">{{ i18n .Name }}</a></li>
+						{{ $vars.Set "frag" "#" }}
+						{{ if in .URL "/" }}
+							{{ $vars.Set "frag" "" }}
+						{{ end }}
+						<li class="nav-item"><a class="nav-link" href='{{ $vars.Get "frag"}}{{ .URL }}'>{{ i18n .Name }}</a></li>
 					{{ end }}
 
 					{{ else }}
 
 					{{ range .Site.Menus.main }}
-					<li class="nav-item"><a class="nav-link" href="{{ $.Site.BaseURL | relLangURL }}#{{ .URL }}">{{ i18n .Name }}</a>
-					</li>
+					{{ $vars.Set "frag" "#" }}
+						{{ if in .URL "/" }}
+							{{ $vars.Set "frag" "" }}
+						{{ end }}
+						<li class="nav-item"><a class="nav-link" href='{{ $.Site.BaseURL | relLangURL }}{{ $vars.Get "frag"}}{{ .URL }}'>{{ i18n .Name }}</a>
+						</li>
 					{{ end }}
 					{{ end }}
 					
