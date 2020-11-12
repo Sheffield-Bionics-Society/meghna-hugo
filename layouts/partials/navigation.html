@@ -2,10 +2,10 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-dark">
 			<a class="navbar-brand p-0" href="{{ .Site.BaseURL | relLangURL }}">
-				{{ if .Site.Params.logo }}
-				<img class="img-fluid" src="{{ .Site.Params.logo | absURL }}" alt="{{ .Site.Title }}">
+				{{ if site.Params.logo }}
+				<img class="lozad" data-src="{{ site.Params.logo | absURL }}" alt="{{ .Site.Title }}" height="42">
 				{{ else }}
-				{{ .Site.Title }}
+				{{ site.Title }}
 				{{ end }}
 			</a>
 
@@ -44,12 +44,11 @@
 					<li class="nav-item"><a class="nav-link" target="_blank" href="{{ .URL }}">{{ i18n .Name }}</a>
 					</li>
 					{{ end }}
-					
 				</ul>
 				<!-- Language List -->
-				{{- if .Site.IsMultiLingual }}
+				{{- if site.IsMultiLingual }}
 				<select id="select-language" onchange="location = this.value;">
-					{{ $siteLanguages := .Site.Languages}}
+					{{ $siteLanguages := site.Languages}}
 					{{ $pageLang := .Page.Lang}}
 					{{ range .Page.AllTranslations }}
 					{{ $translation := .}}
